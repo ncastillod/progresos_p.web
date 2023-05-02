@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <title>Ej Api Placeholder</title>
+
+    <script>
+        let url='https://jsonplaceholder.typicode.com/users';
+        fetch(url)
+            .then(response=>response.json())
+            .then(data=>mostrarData(data))
+            .catch(error=>console.log(error))
+            
+        const mostrarData=(data)=>{
+            console.log(data)
+            let body=""
+
+            for (var i=0; i < data.length; i++){
+                
+                body+=`<tr><td>${data[i].id}</td><td>${data[i].name}</td><td>${data[i].email}</td></tr>`
+            }
+            document.getElementById('data').innerHTML=body
+        }
+
+
+    </script>
+
+
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>Ej Api Placeholder</h2>
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+
+
+
+                </tr>
+
+
+            </thead>
+
+            <tbody id="data">
+
+
+            </tbody>
+
+
+        </table>
+
+
+
+
+
+    </div>
+    
+</body>
+</html>
